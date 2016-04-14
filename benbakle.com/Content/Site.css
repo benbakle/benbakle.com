@@ -8,17 +8,15 @@ html, body {
 }
 
 body {
-    /*background-color: #fafafa /*#f5f3f3*/
     color: #444;
-    background-color: #fff;
-    background-repeat: repeat;
+    background-color: #dedbd3;
     font-size: 2em;
     font-family: 'Gentium Book Basic', Georgia, serif;
 }
 
 section {
     padding-bottom: 200px;
-    border-bottom: 10px solid #efefef;
+    border-bottom: 10px solid #a79f8b;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -40,14 +38,14 @@ textarea {
 
 h1 {
     font-size: 2.5em;
-    text-transform:uppercase;
+    text-transform: uppercase;
     color: #68614F;
 }
 
     h1 small {
         display: inline;
         color: #9B9482;
-        text-transform:lowercase;
+        text-transform: lowercase;
         font-size: .6em;
         position: relative;
     }
@@ -61,7 +59,7 @@ h3 {
 }
 
 h4 {
-    color: #333;
+    color: #4F5668;
     font-weight: 700;
 }
 
@@ -89,8 +87,8 @@ p {
     .title h1 {
         min-height: 150px;
         padding: 10px 0;
-        text-shadow: 5px 2px 5px #dedede;
-        border-bottom: 4px double #E8E1CF;
+        text-shadow: 0px 20px 12px #837a63;
+        border-bottom: 4px double #837a63;
         text-transform: uppercase;
     }
 
@@ -114,7 +112,7 @@ p {
 }
 
     .link-strip .fa {
-        text-shadow: 0px 30px 15px #ccc;
+        text-shadow: 0px 20px 12px #837a63;
         -webkit-transition: font-size 2s; /* For Safari 3.1 to 6.0 */
         transition: font-size .5s;
     }
@@ -153,22 +151,20 @@ footer {
     min-height: 50px;
     padding: 25px 0;
     box-sizing: border-box;
-    border-top: 4px double #E8E1CF;
+    border-top: 4px double #837a63;
 }
 
 .newsfeed-bg {
     position: fixed;
     left: 35%;
     height: 100%;
+    max-width: 900px;
     width: 60%;
-    background: linear-gradient(to right, #efefef, #fff);
-    background: -webkit-linear-gradient(25deg, #efefef, #fff, #fff); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, #efefef, #fff); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, #efefef, #fff); /* For Firefox 3.6 to 15 */
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    background-color: #eee;
+    border-left: 1px solid #a79f8b;
+    border-right: 1px solid #a79f8b;
     box-sizing: border-box;
-    box-shadow: 0px 10px 25px #ccc;
+    box-shadow: 0px 10px 25px #2c2921;
 }
 
 #scroll-top {
@@ -178,12 +174,16 @@ footer {
 
 .newsfeed {
     position: relative;
+    max-width: 900px;
     padding: 50px 120px 30px 100px;
 }
 
     .newsfeed h1 {
         color: #68614F;
         text-shadow: 5px 2px 5px #dedede;
+    }
+    .newsfeed hr{
+        border-bottom:1px solid #a79f8b;
     }
 
 .nav-container {
@@ -192,8 +192,8 @@ footer {
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    border-top: 1px solid #a79f8b;
+    border-bottom: 1px solid #a79f8b;
 }
 
     .nav-container a {
@@ -212,6 +212,7 @@ footer {
 
 .to-top {
     width: 60%;
+    max-width: 900px;
     left: 35%;
     text-align: center;
     z-index: 10;
@@ -298,9 +299,10 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
         .to-top .fa {
             font-size: 2em;
         }
-        .to-top .fa:hover {
-            font-size: 3em;
-        }
+
+            .to-top .fa:hover {
+                font-size: 3em;
+            }
 
     .newsfeed-bg {
         width: 100%;
@@ -327,14 +329,15 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
         text-align: center;
         margin-bottom: 25px;
         padding: 10px 0;
-        background-color: #efefef;
+        background-color: #dedbd3;
+        border:1px solid #ccc;
     }
 
         .newsfeed .title-xs h1 {
             display: inline;
-            font-size: 20px;
+            font-size: 30px;
             text-transform: uppercase;
-            border-bottom: 4px double #E8E1CF;
+            border-bottom: 4px double #837a63;
         }
 
             .newsfeed .title-xs h1 span {
@@ -345,7 +348,7 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
         .newsfeed .title-xs img {
             display: inline;
             margin-right: 10px;
-            max-height: 30px;
+            max-height: 50px;
             border: 1px solid #68614F;
         }
 }
