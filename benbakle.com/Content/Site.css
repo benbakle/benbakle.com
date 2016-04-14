@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    background-color: #f5f3f3;
+    background-color: #fafafa /*#f5f3f3*/;
     color: #444;
     font-size: 2em;
     font-family: 'Gentium Book Basic', Georgia, serif;
@@ -63,7 +63,7 @@ a {
 .title {
     position: fixed;
     width: 35%;
-    top: 25px;
+    top: 75px;
     margin: 0 auto;
     text-align: center;
 }
@@ -78,7 +78,7 @@ a {
 
     .title img {
         margin: 0 auto;
-        max-width: 50%;
+        max-width: 75%;
         border: 3px solid #666;
     }
 
@@ -89,8 +89,8 @@ a {
     width: 60%;
     padding: 50px 80px;
     background-color: #fff;
-    border-left: 1px solid #999;
-    border-right: 1px solid #999;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     box-sizing: border-box;
     box-shadow: 1px 10px 10px #333;
 }
@@ -99,7 +99,11 @@ a {
     position: relative;
     padding: 50px 80px 30px 50px;
 }
-
+.nav-container .fa{
+    position:relative;
+    top:-5px;
+    font-size:.5em;
+}
 .to-top {
     width: 60%;
     left: 35%;
@@ -222,7 +226,7 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
 
 /*custom width based on title name*/
 @media (max-width:986px) {
-    .portable-menu {
+    .to-top {
         width: 100%;
         left: unset;
     }
@@ -243,6 +247,10 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
         width: 100%;
         left: unset;
     }
+    .nav-container{
+        text-align:center;
+    }
+
 }
 
 @media(min-width:768px) {
