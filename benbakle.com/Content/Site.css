@@ -8,12 +8,18 @@ html, body {
 }
 
 body {
-    background-color: #fafafa /*#f5f3f3*/;
+    /*background-color: #fafafa /*#f5f3f3*/
     color: #444;
+    background-color: #fff;
+    background-repeat: repeat;
     font-size: 2em;
     font-family: 'Gentium Book Basic', Georgia, serif;
 }
 
+section {
+    padding-bottom: 200px;
+    border-bottom: 10px solid #efefef;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
 }
@@ -33,106 +39,78 @@ textarea {
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 2.5em;
+    text-transform:uppercase;
+    color: #68614F;
 }
 
+    h1 small {
+        display: inline;
+        color: #9B9482;
+        text-transform:lowercase;
+        font-size: .6em;
+        position: relative;
+    }
+
 h2 {
-    font-size: 3em;
     color: #56BC8A;
-    text-shadow: 5px 2px 5px #dedede;
 }
 
 h3 {
     color: #413A29;
 }
 
+h4 {
+    color: #333;
+    font-weight: 700;
+}
+
 a {
-    color: #057940;
-    font-size: 1.8em;
+    color: #56BC8A;
 }
 
     a:hover {
         color: #68654F;
     }
 
-.newsfeed h1 {
-    color: #68614F;
-    text-shadow: 5px 2px 5px #dedede;
+p {
+    font-size: 1em;
 }
 
 .title {
     position: fixed;
+    height: 100%;
     width: 35%;
-    top: 75px;
+    padding: 0 35px;
     margin: 0 auto;
     text-align: center;
 }
 
     .title h1 {
-        text-shadow: 5px 2px 5px #ccc;
+        min-height: 150px;
+        padding: 10px 0;
+        text-shadow: 5px 2px 5px #dedede;
+        border-bottom: 4px double #E8E1CF;
+        text-transform: uppercase;
     }
 
         .title h1 span {
-            color: #68614F;
+            padding: 0;
+            margin: 0;
+            color: #56BC8A;
         }
 
     .title img {
-        margin: 0 auto;
-        max-width: 75%;
-        border: 3px solid #666;
+        margin: 10% auto;
+        max-width: 50%;
+        border: 1px solid #68614F;
     }
-
-.newsfeed-bg {
-    position: fixed;
-    left: 35%;
-    height: 100%;
-    width: 60%;
-    padding: 50px 80px;
-    background-color: #fff;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    box-sizing: border-box;
-    box-shadow: 1px 10px 10px #333;
-}
-
-.newsfeed {
-    position: relative;
-    padding: 50px 80px 30px 50px;
-}
-.nav-container .fa{
-    position:relative;
-    top:-5px;
-    font-size:.5em;
-}
-.to-top {
-    width: 60%;
-    left: 35%;
-    text-align: center;
-    z-index: 10;
-    position: fixed;
-    bottom: 30px;
-}
-
-    .to-top .fa {
-        font-size: 3em;
-        opacity: .2;
-        transition: font-size .8s, opacity .8s;
-        color: #333;
-    }
-
-        .to-top .fa:hover {
-            font-size: 3.5em;
-            opacity: .8;
-        }
-
-#top {
-    display: none;
-}
 
 .link-strip {
     position: relative;
-    top: 35px;
     font-size: 2em;
+    width: 100%;
+    cursor: pointer;
 }
 
     .link-strip .fa {
@@ -141,9 +119,9 @@ a {
         transition: font-size .5s;
     }
 
-    .link-strip i:hover {
-        font-size: 1.2em;
-    }
+        .link-strip .fa:hover {
+            font-size: 1.2em;
+        }
 
     .link-strip .fa-facebook-square {
         color: #3b5998;
@@ -168,6 +146,92 @@ a {
     .link-strip .fa-tumblr-square {
         color: #32506d;
     }
+
+footer {
+    position: relative;
+    top: 75px;
+    min-height: 50px;
+    padding: 25px 0;
+    box-sizing: border-box;
+    border-top: 4px double #E8E1CF;
+}
+
+.newsfeed-bg {
+    position: fixed;
+    left: 35%;
+    height: 100%;
+    width: 60%;
+    background: linear-gradient(to right, #efefef, #fff);
+    background: -webkit-linear-gradient(25deg, #efefef, #fff, #fff); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #efefef, #fff); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #efefef, #fff); /* For Firefox 3.6 to 15 */
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: 0px 10px 25px #ccc;
+}
+
+#scroll-top {
+    display: none;
+}
+
+
+.newsfeed {
+    position: relative;
+    padding: 50px 120px 30px 100px;
+}
+
+    .newsfeed h1 {
+        color: #68614F;
+        text-shadow: 5px 2px 5px #dedede;
+    }
+
+.nav-container {
+    text-transform: uppercase;
+    padding: 10px 0;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+    .nav-container a {
+        font-size: 1.3em;
+    }
+
+    .nav-container .fa {
+        position: relative;
+        font-size: .3em;
+        top: -5px;
+    }
+
+    .nav-container ul.list-inline {
+        margin-bottom: 0px;
+    }
+
+.to-top {
+    width: 60%;
+    left: 35%;
+    text-align: center;
+    z-index: 10;
+    position: fixed;
+    bottom: 30px;
+}
+
+    .to-top .fa {
+        font-size: 4em;
+        opacity: .2;
+        transition: font-size .8s, opacity .8s;
+        color: #333;
+    }
+
+        .to-top .fa:hover {
+            font-size: 5em;
+            opacity: .8;
+        }
+
+
 
 
 .color-primary-0 {
@@ -221,36 +285,69 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
 
 /*xs*/
 @media(max-width:767px) {
-}
 
+    h1 small {
+        display: block;
+    }
 
-/*custom width based on title name*/
-@media (max-width:986px) {
     .to-top {
         width: 100%;
         left: unset;
     }
 
-    .container-fluid {
-        padding: 0;
-    }
-
-    .row {
-        margin: 0;
-    }
-
-    .newsfeed {
-        width: 100%;
-    }
+        .to-top .fa {
+            font-size: 2em;
+        }
+        .to-top .fa:hover {
+            font-size: 3em;
+        }
 
     .newsfeed-bg {
         width: 100%;
         left: unset;
     }
-    .nav-container{
-        text-align:center;
+
+    .newsfeed {
+        padding: 25px 25px 30px 25px;
     }
 
+    .nav-container {
+        font-size: .8em;
+        text-align: center;
+    }
+
+        .nav-container .fa {
+            display: none;
+        }
+
+
+
+    .newsfeed .title-xs {
+        position: relative;
+        text-align: center;
+        margin-bottom: 25px;
+        padding: 10px 0;
+        background-color: #efefef;
+    }
+
+        .newsfeed .title-xs h1 {
+            display: inline;
+            font-size: 20px;
+            text-transform: uppercase;
+            border-bottom: 4px double #E8E1CF;
+        }
+
+            .newsfeed .title-xs h1 span {
+                display: inline;
+                color: #56BC8A;
+            }
+
+        .newsfeed .title-xs img {
+            display: inline;
+            margin-right: 10px;
+            max-height: 30px;
+            border: 1px solid #68614F;
+        }
 }
 
 @media(min-width:768px) {

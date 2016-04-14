@@ -3,57 +3,65 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700,700italic' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
-    <div id="scroll-top"></div>
-    <div class="to-top">
-        <a href="#" id="top" class="scroll-click"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
-    </div>
+    <div id="top"></div>
     <div class="title visible-md visible-lg visible-sm">
         <h1>
             Benjamin
             <br />
             <span>Bakle</span>
         </h1>
-        <img src="~/Images/Ben.jpg" class="img-responsive img-circle" />
-        <span class="link-strip">
-            <i class="fa fa-facebook-square"></i>
-            <i class="fa fa-twitter-square"></i>
-            <i class="fa fa-tumblr-square"></i>
-            <i class="fa fa-google-plus-square"></i>
-            <i class="fa fa-github-square"></i>
-            <i class="fa fa-stack-overflow"></i>
+        <div class="avatar">
+            <a href="#"><img src="~/images/Ben.jpg" class="img-responsive img-circle" /></a>
 
-        </span>
+            <span class="link-strip">
+                <i class="fa fa-facebook-square"></i>
+                <i class="fa fa-twitter-square"></i>
+                <i class="fa fa-tumblr-square"></i>
+                <i class="fa fa-google-plus-square"></i>
+                <i class="fa fa-github-square"></i>
+                <i class="fa fa-stack-overflow"></i>
+
+            </span>
+        </div>
+        <footer>
+            <p>&copy; @DateTime.Now.Year www.benjaminbakle.com</p>
+        </footer>
+    </div>
+    <div class="to-top">
+        <a href="#" id="scroll-top" class="scroll-click"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
     </div>
     <div class="newsfeed-bg"></div>
     <div class="container-fluid body-content">
         <div class="row">
-            <div class="col-md-4 col-sm-4">
+            <div class="newsfeed col-md-offset-4 col-md-8  col-sm-offset-4 col-sm-8">
+                <div class="title-xs visible-xs">
+                    <img src="~/images/Ben.jpg" class="img-responsive img-circle" />
+                    <h1>
+                        Benjamin
+                        <span>Bakle</span>
+                    </h1>
 
-            </div>
-            <div class="col-md-8 col-sm-8 newsfeed">
+                </div>
                 <div class="nav-container">
                     <ul class="list-inline">
-                        <li><a href="#" id="blog" class="scroll-click">Blog</a></li>
+                        <li><a href="#" id="scroll-blog" class="scroll-click">Blog</a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="#" id="portfolio" class="scroll-click">Portfolio</a></a></li>
+                        <li><a href="#" id="scroll-portfolio" class="scroll-click">Portfolio</a></a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="#" id="resume" class="scroll-click">Resume</a></li>
-                    
+                        <li><a href="#" id="scroll-resume" class="scroll-click">Resume</a></li>
+
                     </ul>
                 </div>
-                <hr />
+
                 @RenderBody()
-                <hr />
-                <footer>
-                    <p>&copy; @DateTime.Now.Year - www.benbakle.com</p>
-                </footer>
+
             </div>
         </div>
     </div>
@@ -67,17 +75,18 @@
         $(document).ready(function () {
             $(window).scroll(function () { // when the page is scrolled run this
                 if ($(this).scrollTop() >= 100) { // greater than or equal to 100px
-                    $('#top').fadeIn("slow"); // fade in
+                    $('#scroll-top').fadeIn("slow"); // fade in
                 } else { // else
-                    $('#top').fadeOut("slow"); // fade out
+                    $('#scroll-top').fadeOut("slow"); // fade out
                 }
             });
             $(".scroll-click").click(function () {
-                var myID = '#scroll-' + this.id;
-                $('html, body').animate({scrollTop:$(myID).position().top}, 'slow');
+                var myID = this.id;
+                myID = '#' + myID.split("-")[1];
+                $('html, body').animate({ scrollTop: $(myID).position().top }, 'slow');
             });
         });
-        
+
     </script>
 </body>
 
