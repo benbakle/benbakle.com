@@ -85,9 +85,9 @@ p {
 }
 
     .title h1 {
-        min-height: 150px;
+        min-height: 200px;
         padding: 10px 0;
-        text-shadow: 0px 20px 12px #837a63;
+        text-shadow: 0px 10px 12px #a79f8b;
         border-bottom: 4px double #837a63;
         text-transform: uppercase;
     }
@@ -104,11 +104,13 @@ p {
         border: 1px solid #68614F;
     }
 
+    .avatar{
+        padding-bottom20px;
+    }
 .link-strip {
     position: relative;
     font-size: 2em;
-    width: 100%;
-    cursor: pointer;
+    width: 100%; 
 }
 
     .link-strip .fa {
@@ -119,6 +121,7 @@ p {
 
         .link-strip .fa:hover {
             font-size: 1.2em;
+            cursor: pointer; 
         }
 
     .link-strip .fa-facebook-square {
@@ -147,11 +150,10 @@ p {
 
 footer {
     position: relative;
-    top: 75px;
     min-height: 50px;
     padding: 25px 0;
     box-sizing: border-box;
-    border-top: 4px double #837a63;
+    /*border-top: 4px double #837a63;*/
 }
 
 .newsfeed-bg {
@@ -180,10 +182,12 @@ footer {
 
     .newsfeed h1 {
         color: #68614F;
-        text-shadow: 5px 2px 5px #dedede;
+        text-shadow: 5px 2px 5px #d3cfc5;
     }
-    .newsfeed hr{
+     hr{
+        border-top:1px solid #d3cfc5;
         border-bottom:1px solid #a79f8b;
+        padding:0;
     }
 
 .nav-container {
