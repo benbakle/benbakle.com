@@ -74,6 +74,12 @@ p {
     font-size: 1em;
 }
 
+hr {
+    border-top: 1px solid #d3cfc5;
+    border-bottom: 1px solid #a79f8b;
+    padding: 0;
+}
+
 .title {
     position: fixed;
     height: 100%;
@@ -84,9 +90,9 @@ p {
 }
 
     .title h1 {
-        min-height: 150px;
-        padding: 10px 0;
-        text-shadow: 0px 20px 12px #837a63;
+        min-height: 200px;
+        padding: 40px 0;
+        text-shadow: 0px 10px 12px #a79f8b;
         border-bottom: 4px double #837a63;
         text-transform: uppercase;
     }
@@ -103,54 +109,63 @@ p {
         border: 1px solid #68614F;
     }
 
+.avatar {
+    padding-bottom: 40px;
+}
+
 .link-strip {
     position: relative;
+    min-height:100px;
     font-size: 2em;
     width: 100%;
-    cursor: pointer;
+    
 }
 
     .link-strip .fa {
         text-shadow: 0px 20px 12px #837a63;
+        cursor: pointer;
+        padding:0 5px;
         -webkit-transition: font-size 2s; /* For Safari 3.1 to 6.0 */
-        transition: font-size .5s;
+        transition: font-size .5s, padding .5s;
     }
 
         .link-strip .fa:hover {
+            margin-bottom:-25px;
+            padding: 0 20px;
             font-size: 1.2em;
+            
         }
 
-    .link-strip .fa-facebook-square {
+    .fa-facebook-square {
         color: #3b5998;
     }
 
-    .link-strip .fa-twitter-square {
+    .fa-twitter-square {
         color: #00aced;
     }
 
-    .link-strip .fa-github-square {
+    .fa-github-square {
         color: #333;
     }
 
-    .link-strip .fa-stack-overflow {
+    .fa-stack-overflow {
         color: #07C;
     }
 
-    .link-strip .fa-google-plus-square {
+    .fa-google-plus-square {
         color: #d34836;
     }
 
-    .link-strip .fa-tumblr-square {
+   .fa-tumblr-square {
         color: #32506d;
     }
 
 footer {
     position: relative;
-    top: 75px;
     min-height: 50px;
     padding: 25px 0;
     box-sizing: border-box;
-    border-top: 4px double #837a63;
+    /*border-top: 4px double #837a63;*/
 }
 
 .newsfeed-bg {
@@ -178,22 +193,24 @@ footer {
 }
 
 
-.newsfeed h1{
-    color: #68614F;
-    text-shadow: 5px 2px 5px #dedbd3;
-}
+    .newsfeed h1 {
+        color: #68614F;
+        text-shadow: 5px 2px 5px #dedbd3;
+    }
 
-.newsfeed h1.section-title {
-    padding: 20px;
-    border-top: 10px solid #a79f8b;
-    border-bottom: 3px solid #a79f8b;
-}
-.newsfeed p{
-    padding:2px 10px;
-}
-.newsfeed hr {
-    border-bottom: 1px solid #a79f8b;
-}
+        .newsfeed h1.section-title {
+            padding: 20px;
+            border-top: 10px solid #a79f8b;
+            border-bottom: 3px solid #a79f8b;
+        }
+
+    .newsfeed p {
+        padding: 2px 10px;
+    }
+
+    .newsfeed hr {
+        border-bottom: 1px solid #a79f8b;
+    }
 
 .nav-container {
     text-transform: uppercase;
@@ -360,6 +377,19 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
             max-height: 50px;
             border: 1px solid #68614F;
         }
+
+    .newsfeed .link-strip-xs {
+        font-size: 1.2em;
+    }
+
+    .newsfeed .link-strip-xs .fa {
+        text-shadow: 0px 10px 12px #837a63;
+        padding:15px 7px;
+    }
+
+    .newsfeed .link-strip-xs .fa:hover {
+        font-size: unset;
+    }
 }
 
 @media(min-width:768px) {

@@ -19,16 +19,9 @@
         </h1>
         <div class="avatar">
             <a href="#"><img src="~/images/Ben.jpg" class="img-responsive img-circle" /></a>
-
-            <span class="link-strip">
-                <i class="fa fa-facebook-square"></i>
-                <i class="fa fa-twitter-square"></i>
-                <i class="fa fa-tumblr-square"></i>
-                <i class="fa fa-google-plus-square"></i>
-                <i class="fa fa-github-square"></i>
-                <i class="fa fa-stack-overflow"></i>
-
-            </span>
+            <div class="link-strip">
+                @Html.Partial("_LinkStripPartial")
+            </div>
         </div>
         <hr />
         <footer>
@@ -48,6 +41,9 @@
                         Benjamin
                         <span>Bakle</span>
                     </h1>
+                    <div class="link-strip-xs">
+                        @Html.Partial("_LinkStripPartial")
+                    </div>
 
                 </div>
                 <div class="nav-container">
