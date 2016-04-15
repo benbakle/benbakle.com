@@ -83,7 +83,7 @@
             $(".scroll-click").click(function () {
                 var myID = this.id;
                 myID = '#' + myID.split("-")[1];
-                $('html, body').animate({ scrollTop: $(myID).position().top }, 'slow');
+                $('html, body').animate({ scrollTop: $(myID).position().top - 50 }, 'slow');
             });
         });
 
