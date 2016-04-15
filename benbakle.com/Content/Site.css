@@ -373,7 +373,7 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
         .newsfeed .title-xs img {
             display: inline;
             margin-right: 10px;
-            max-height: 50px;
+            max-height: 75px;
             border: 1px solid #68614F;
         }
 
