@@ -13,9 +13,6 @@ body {
     font-family: 'Gentium Book Basic', Georgia, serif;
 }
 
-section {
-    padding-bottom: 200px;
-}
 /* Set padding to keep content from hitting the edges */
 .body-content {
 }
@@ -216,15 +213,20 @@ footer {
             border-bottom: 3px solid #a79f8b;
         }
 
-.padded-block {
-    padding: 0 10px;
+#resume h4, #resume p {
+    position: relative;
+    top: -10px;
 }
-
-    #resume h4, #resume p {
-        position: relative;
-        top: -10px;
-    }
-
+.section-divider{
+    margin:100px 0 27px 0;
+    width:100%;
+    text-align:center;
+}
+.section-divider .fa{
+    font-size:.5em;
+    width:10%;
+    color:#d4d0c4;
+}
 
 .nav-container {
     text-transform: uppercase;
