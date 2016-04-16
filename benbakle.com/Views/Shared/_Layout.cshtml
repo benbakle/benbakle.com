@@ -72,17 +72,19 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            var isXS = (screen.width <= 767);
+
             $(window).scroll(function () { // when the page is scrolled run this
                 if ($(this).scrollTop() >= 100) { // greater than or equal to 100px
-                    $('#scroll-top').fadeIn("slow"); // fade in
+                    $('#scroll-top').stop().fadeIn(1000); // fade in
                 } else { // else
-                    $('#scroll-top').fadeOut(500); // fade out
+                    $('#scroll-top').stop().fadeOut(1000); // fade out
                 }
             });
             $(".scroll-click").click(function () {
                 var myID = this.id;
                 myID = '#' + myID.split("-")[1];
-                $('html, body').animate({ scrollTop: $(myID).position().top - 35 }, 'slow');
+                $('html, body').stop().animate({ scrollTop: $(myID).position().top - 35 }, 500);
             });
         });
 
