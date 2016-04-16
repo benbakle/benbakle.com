@@ -21,11 +21,15 @@ namespace benbakle.com
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/Prettify/prettify.js",
+                      "~/Scripts/Prettify/run_prettify.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.min.css",
+                      "~/Content/Prettify/prettify.css",
+                      "~/Content/Prettify/Themes/desert.css",
                       "~/Content/site.css"));
         }
     }
