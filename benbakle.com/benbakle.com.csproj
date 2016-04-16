@@ -218,6 +218,8 @@
     <Content Include="images\backgrounds\main-bg.png" />
     <Content Include="images\Ben.jpg" />
     <Content Include="images\Ben_2.jpg" />
+    <Content Include="images\screenshots\jyb-screenshot.PNG" />
+    <Content Include="images\screenshots\st-screenshot.PNG" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
