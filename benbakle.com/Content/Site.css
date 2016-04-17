@@ -149,7 +149,7 @@ button {
 
 .link-strip {
     position: relative;
-    min-height: 50px;
+    min-height: 60px;
     font-size: 2em;
     width: 100%;
 }

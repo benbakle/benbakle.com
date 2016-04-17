@@ -18,7 +18,7 @@
             <span>Bakle</span>
         </h1>
         <div class="avatar">
-            <a href="#"><img src="~/images/Ben.jpg" class="img-responsive img-circle" /></a>
+            <a href="~/Home"><img src="~/images/Ben.jpg" class="img-responsive img-circle" /></a>
             <div class="link-strip">
                 @Html.Partial("_LinkStripPartial")
             </div>
@@ -36,7 +36,7 @@
         <div class="row">
             <div class="newsfeed col-md-offset-4 col-md-8  col-sm-offset-4 col-sm-8">
                 <div class="title-xs visible-xs">
-                    <img src="~/images/Ben.jpg" class="img-responsive img-circle" />
+                    <a href="~/Home"><img src="~/images/Ben.jpg" class="img-responsive img-circle" /></a>
                     <h1>
                         Benjamin
                         <span>Bakle</span>
@@ -48,13 +48,13 @@
                 </div>
                 <div class="nav-container">
                     <ul class="list-inline">
-                        <li><a href="#blog" id="scroll-blog" class="scroll-click">Blog</a></li>
+                        <li><a href="~/#blog" id="scroll-blog" class="scroll-click">Blog</a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="#portfolio" id="scroll-portfolio" class="scroll-click">Portfolio</a></a></li>
+                        <li><a href="~/#portfolio" id="scroll-portfolio" class="scroll-click">Portfolio</a></a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="#resume" id="scroll-resume" class="scroll-click">Resume</a></li>
+                        <li><a href="~/#resume" id="scroll-resume" class="scroll-click">Resume</a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="#" class="scroll-click">Interests</a></li>
+                        <li><a href="~/Home/About" class="scroll-click">Interests</a></li>
 
                     </ul>
                 </div>
@@ -109,9 +109,8 @@
 
             function displayTextPost(posts) {
                 if (posts == null) return;
-                $('#tumblrfeed').append('<p></h1><br clear=all><h1><i class="fa fa-tumblr-square"></i><a href="' + posts['url'] + '" target=_new>' + posts['regular-title'] + "</a>");
-                $('#tumblrfeed').append('<i>' + posts['date'] + '</i>');
-                $('#tumblrfeed').append(posts['regular-body'] + '</p><hr><br>'); //.substring(0, 500) -- after 'regular-body' to shorten 
+                $('#tumblrfeed').append('<h1><i class="fa fa-tumblr-square"></i><a href="' + posts['url'] + '" target=_new>' + posts['regular-title'] + '</a><small>' + posts['date'] + '</small></h1>');
+                $('#tumblrfeed').append(posts['regular-body'] + '<hr><br>'); //.substring(0, 500) -- after 'regular-body' to shorten 
             }
 
             function displayLinkPost(posts) {
