@@ -69,6 +69,10 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script type=“text/javascript” src=“http://code.jquery.com/jquery-latest.js”></script>
+    <!–[if IE]>
+    <script src=“http://html5shiv.googlecode.com/svn/trunk/html5.js”></script>
+    <![endif]–>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -86,10 +90,44 @@
                 myID = '#' + myID.split("-")[1];
                 $('html, body').stop().animate({ scrollTop: $(myID).position().top - 35 }, 500);
             });
-        });
 
+            //Embeding of tumblr post
+            var limit = 5;
+            var url = 'http://benbakle.tumblr.com';
+
+            $.getJSON(url + '/api/read/json?num='+limit+'&callback=?', function (data) {
+                $.each(data.posts, function (i, posts) {
+                    if (posts.type == 'video') {
+                        displayVideoPost(posts);
+                    } else if (posts.type == 'link') {
+                        displayLinkPost(posts);
+                    } else if (posts.type == 'regular') {
+                        displayTextPost(posts);
+                    }
+                });
+            });
+
+            function displayTextPost(posts) {
+                if (posts == null) return;
+                $('#tumblrfeed').append('<p></h1><br clear=all><h1><i class="fa fa-tumblr-square"></i><a href="' + posts['url'] + '" target=_new>' + posts['regular-title'] + "</a>");
+                $('#tumblrfeed').append('<i>' + posts['date'] + '</i>');
+                $('#tumblrfeed').append(posts['regular-body'] + '</p><hr><br>'); //.substring(0, 500) -- after 'regular-body' to shorten 
+            }
+
+            function displayLinkPost(posts) {
+                if (posts == null) return;
+                $('#tumblrfeed').append('<p><h1>' + posts['link-text'] + "</h1>");
+                $('#tumblrfeed').append(posts['link-url']);
+                $('#tumblrfeed').append(posts['link-description'] + '</p>');
+            }
+
+            function displayVideoPost(posts) {
+                if (posts == null) return;
+                $('#tumblrfeed').append('<p><h1>' + posts['video-caption'] + "</h1>");
+                $('#tumblrfeed').append(posts['video-player-250'] + '</p>');
+            }
+
+        });
     </script>
 </body>
-
-
 </html>

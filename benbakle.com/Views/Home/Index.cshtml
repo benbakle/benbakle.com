@@ -24,19 +24,19 @@
 
 <section id="blog">
     <h1 class="section-title"><i class="fa fa-commenting" aria-hidden="true"></i> BLOG <small>sharing nerd experiences with the easily amused</small></h1>
+    <div id="tumblrfeed">
+        
+    </div>
     <div class="container-fluid">
-        <h1>I’m Dumber Than I Look <small>I'll let you be the judge</small></h1>
-        <i>Wednesday, April 13, 2016  </i>
-        <p>
-            This whole tumblr thing… it’s complicated when you’re first getting started.  I’m hoping that I am successfully blogging this.  But, I have my doubts.
-
-            I wasn’t prepared for the dashboard (which really tells you nothing) being such a social frenzy. Not exactly sure what my page looks like because the dashboard shows a different theme than my actual theme. Is there something I’m missing?  I’m sure day two will go much better. As a web developer, I would think I was much smarter than this.
-        </p>
-
         <h1>The Birth of A Website <small>not this one, that other one</small></h1>
         <i>November 11th, 2011</i>
-        <p>Today is the birth of the Bakle House website. I have thought for years about attempting such a feat. Much like an actual birth, there has been lots of grunting and complaining. But, with inspiration, determination, and many other 'ations', it has finally arrived. I thought it was time to start flexing my bits and bytes and assemble them into a goolosh of binary numbers to be served into stimulating images and code mastery for the worlds enjoyment. But mostly I did it to fuel my own ego and attempt to put out an online resume of what I am capable of. For now, just look and don't touch. Expensive coding at work.</p>
+        <p>
+            Today is the birth of the Bakle House website. I have thought for years about attempting such a feat. Much like an actual birth, there has been lots of grunting and complaining. But, with inspiration, determination, and many other 'ations', it has finally arrived. I thought it was time to start flexing my bits and bytes and assemble them into a goolosh of binary numbers to be served into stimulating images and code mastery for the worlds enjoyment. But mostly I did it to fuel my own ego and attempt to put out an online resume of what I am capable of. For now, just look and don't touch. Expensive coding at work.
+        </p>
+
+
     </div>
+
 </section>
 <div class="section-divider">
     <i class="fa fa-circle"></i>
@@ -48,10 +48,32 @@
     <div class="container-fluid portfolio-item">
         <h1>www.benjaminbakle.com</h1>
         <br />
-        <a href="#">
-            <img src="~/images/Ben.jpg" class="img-circle" />
+
+        <!-- Trigger the modal with a button -->
+        <a href="#profile">
+            <img src="~/images/screenshots/bb-screenshot.png" data-toggle="modal" data-target="#myModal" />
         </a>
-        <h2>See What I Did There <small>no, you are not seeing double... or are you?</small></h2>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h1 class="modal-title">Yep, you really clicked it</h1>
+                    </div>
+                    <div class="modal-body">
+                        <img src="~/images/Ben3.jpg" style="float:left;" class="img-circle" />
+                        <p>
+                            <h2>I appriciate your extreme interest in me,</h2> however, creating a link was just a joke.
+                            Clicking this would only take you back here. So I'll save you the effort. Stay.... Good.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <h2>See What I Did Here <small>no, you are not seeing double... or are you?</small></h2>
         <p>
             It's a bit rendundant, yes. However, I was told to self promote. Having mostly taught myself web design
             as well as not having a career in web development,

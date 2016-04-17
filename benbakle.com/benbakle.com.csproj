@@ -217,7 +217,9 @@
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="images\backgrounds\main-bg.png" />
     <Content Include="images\Ben.jpg" />
-    <Content Include="images\Ben_2.jpg" />
+    <Content Include="images\Ben3.jpg" />
+    <Content Include="images\Ben2.jpg" />
+    <Content Include="images\screenshots\bb-screenshot.PNG" />
     <Content Include="images\screenshots\jyb-screenshot.PNG" />
     <Content Include="images\screenshots\st-screenshot.PNG" />
     <Content Include="Scripts\bootstrap.js" />

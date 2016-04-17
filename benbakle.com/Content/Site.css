@@ -49,6 +49,26 @@ h1 {
         position: relative;
     }
 
+#tumblrfeed {
+    position: relative;
+}
+
+    #tumblrfeed h1 a:visited,
+    #tumblrfeed h1 a:active,
+    #tumblrfeed h1 a {
+        color: #68614F;
+    }
+
+        #tumblrfeed h1 a:hover {
+            color: #56BC8A;
+        }
+
+    #tumblrfeed .fa-tumblr-square {
+        position: relative;
+        font-size:1em;
+        margin-right:20px;
+    }
+
 h2 {
     color: #56BC8A;
 }
@@ -80,6 +100,18 @@ hr {
     height: 1px;
     border-top: 1px solid #d4d0c4;
     padding: 0;
+}
+
+button {
+    font-family: Calibri;
+}
+
+.modal-content {
+    padding: 0 10px;
+}
+
+.modal-body {
+    overflow: auto;
 }
 
 .title {
@@ -217,16 +249,18 @@ footer {
     position: relative;
     top: -10px;
 }
-.section-divider{
-    margin:100px 0 27px 0;
-    width:100%;
-    text-align:center;
+
+.section-divider {
+    margin: 100px 0 27px 0;
+    width: 100%;
+    text-align: center;
 }
-.section-divider .fa{
-    font-size:.5em;
-    width:10%;
-    color:#d4d0c4;
-}
+
+    .section-divider .fa {
+        font-size: .5em;
+        width: 10%;
+        color: #d4d0c4;
+    }
 
 .nav-container {
     text-transform: uppercase;
