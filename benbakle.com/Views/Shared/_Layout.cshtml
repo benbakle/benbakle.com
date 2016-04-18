@@ -69,14 +69,14 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script type=“text/javascript” src=“http://code.jquery.com/jquery-latest.js”></script>
+    <script type=“text/javascript” src="http://code.jquery.com/jquery-latest.js"></script>
     <!–[if IE]>
-    <script src=“http://html5shiv.googlecode.com/svn/trunk/html5.js”></script>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]–>
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var isXS = (screen.width <= 767);
+            //var isXS = (screen.width <= 767);
 
             $(window).scroll(function () { // when the page is scrolled run this
                 if ($(this).scrollTop() >= 100) { // greater than or equal to 100px
@@ -88,14 +88,17 @@
             $(".scroll-click").click(function () {
                 var myID = this.id;
                 myID = '#' + myID.split("-")[1];
-                $('html, body').stop().animate({ scrollTop: $(myID).position().top - 35 }, 500);
+                $('html, body').stop().animate({ scrollTop: $(myID).position().top - 10 }, 500);
             });
+
+            $('[data-toggle="tooltip"]').tooltip();
+
 
             //Embeding of tumblr post
             var limit = 5;
             var url = 'http://benbakle.tumblr.com';
 
-            $.getJSON(url + '/api/read/json?num='+limit+'&callback=?', function (data) {
+            $.getJSON(url + '/api/read/json?num=' + limit + '&callback=?', function (data) {
                 $.each(data.posts, function (i, posts) {
                     if (posts.type == 'video') {
                         displayVideoPost(posts);
@@ -109,8 +112,16 @@
 
             function displayTextPost(posts) {
                 if (posts == null) return;
-                $('#tumblrfeed').append('<h1><i class="fa fa-tumblr-square"></i><a href="' + posts['url'] + '" target=_new>' + posts['regular-title'] + '</a><small>' + posts['date'] + '</small></h1>');
-                $('#tumblrfeed').append(posts['regular-body'] + '<hr><br>'); //.substring(0, 500) -- after 'regular-body' to shorten 
+
+                var tURL = "http://www.benbakle.tumblr.com";
+                var tPostURL = posts['url'];
+                var tTitle = posts['regular-title'];
+                var tDate = new Date(posts['date']);
+                var tBody = posts['regular-body'];
+                var dateStr = weekday[tDate.getDay()] + " " + month[tDate.getMonth()] + " " + tDate.getDate() + ", " + tDate.getFullYear();
+                //+month[tDate.month()] + " " + tDate.getDate() + ", " + tDate.getYear()
+                $('#tumblrfeed').append("<h1><a href=" + tURL + "target='_new' data-toggle='tooltip' title='benbakle.tumblr.com'><i class='fa fa-tumblr'></i></a><a href='" + tPostURL + " target=_'new'>" + tTitle + "</a><small>" + dateStr + "</small></h1>" + tBody + "<hr><br>"); //.substring(0, 500) -- after 'regular-body' to shorten
+                //$('#tumblrfeed').append(posts['regular-body'] + "<hr><br>"); //.substring(0, 500) -- after 'regular-body' to shorten
             }
 
             function displayLinkPost(posts) {
@@ -126,7 +137,30 @@
                 $('#tumblrfeed').append(posts['video-player-250'] + '</p>');
             }
 
+            var month = new Array();
+            month[0] = "January";
+            month[1] = "February";
+            month[2] = "March";
+            month[3] = "April";
+            month[4] = "May";
+            month[5] = "June";
+            month[6] = "July";
+            month[7] = "August";
+            month[8] = "September";
+            month[9] = "October";
+            month[10] = "November";
+            month[11] = "December";
+
+            var weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
         });
     </script>
+
 </body>
 </html>

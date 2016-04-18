@@ -215,6 +215,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="google9cfac9af6baa9efc.html" />
     <Content Include="images\backgrounds\main-bg.png" />
     <Content Include="images\Ben.jpg" />
     <Content Include="images\Ben3.jpg" />

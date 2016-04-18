@@ -63,11 +63,16 @@ h1 {
             color: #56BC8A;
         }
 
-    #tumblrfeed .fa-tumblr-square {
+    #tumblrfeed .fa-tumblr {
         position: relative;
-        font-size:1em;
-        margin-right:20px;
+        font-size: 1em;
+        margin-right: 20px;
+        opacity: .7;
     }
+
+        #tumblrfeed .fa-tumblr:hover {
+            opacity: 1;
+        }
 
 h2 {
     color: #56BC8A;
@@ -196,7 +201,7 @@ button {
     color: #d34836;
 }
 
-.fa-tumblr-square {
+.fa-tumblr-square, .fa-tumblr {
     color: #32506d;
 }
 
@@ -235,14 +240,16 @@ footer {
 
 
     .newsfeed h1 {
+        font-size: 2em;
         color: #68614F;
         text-shadow: 5px 2px 5px #dedbd3;
     }
 
         .newsfeed h1.section-title {
+            font-size: 2.5em;
             padding: 20px;
             border-top: 10px solid #a79f8b;
-            border-bottom: 3px solid #a79f8b;
+            border-bottom: 3px solid #dedbd3;
         }
 
 #resume h4, #resume p {
@@ -455,7 +462,7 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
                 font-size: unset;
             }
 
-    .portfolio-item h1 {
+    .newsfeed section .portfolio-item h1 {
         font-size: 1.25em;
     }
 
