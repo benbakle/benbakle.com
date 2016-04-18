@@ -303,6 +303,13 @@ footer {
     margin-top: 2px;
 }
 
+.modal-body img {
+    max-width: 37%;
+    float: left;
+    margin-right: 7px;
+    margin-bottom: 7px;
+}
+
 .to-top {
     width: 60%;
     max-width: 900px;
