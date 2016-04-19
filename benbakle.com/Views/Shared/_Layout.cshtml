@@ -120,9 +120,9 @@
                 var tDate = new Date(posts['date']);
                 var tBody = posts['regular-body'];
                 var dateStr = weekday[tDate.getDay()] + " " + month[tDate.getMonth()] + " " + tDate.getDate() + ", " + tDate.getFullYear();
-                //+month[tDate.month()] + " " + tDate.getDate() + ", " + tDate.getYear()
-                $('#tumblrfeed').append("<h1><a href=" + tURL + "target='_new' data-toggle='tooltip' title='benbakle.tumblr.com'><i class='fa fa-tumblr'></i></a><a href='" + tPostURL + " target=_'new'>" + tTitle + "</a><small>" + dateStr + "</small></h1>" + tBody + "<hr><br>"); //.substring(0, 500) -- after 'regular-body' to shorten
-                //$('#tumblrfeed').append(posts['regular-body'] + "<hr><br>"); //.substring(0, 500) -- after 'regular-body' to shorten
+
+                $('#tumblrfeed').append("<h1><a href='" + tURL + "' target='_new' data-toggle='tooltip' title='benbakle.tumblr.com'><i class='fa fa-tumblr'></i></a><a href='" + tPostURL + " target=_'new'>" + tTitle + "</a><small>" + dateStr + "</small></h1>" + tBody + "<hr><br>"); //.substring(0, 500) -- after 'regular-body' to shorten
+
             }
 
             function displayLinkPost(posts) {

@@ -395,7 +395,7 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
 
     .newsfeed-bg {
         width: 100%;
-        left: unset;
+        left: 0;
     }
 
     .newsfeed {
@@ -439,8 +439,8 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
         .newsfeed .title-xs img {
             display: inline;
             margin-right: 10px;
-            max-height: 75px;
-            border: 1px solid #68614F;
+            max-height: 50px;
+            border: 2px solid #a8a18a;
         }
 
     .newsfeed .link-strip-xs {
