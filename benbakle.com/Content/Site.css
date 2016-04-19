@@ -122,7 +122,7 @@ button {
 .title {
     position: fixed;
     height: 100%;
-    width: 35%;
+    width: 33.33%;
     padding: 0 35px;
     margin: 0 auto;
     text-align: center;
@@ -205,20 +205,16 @@ button {
     color: #32506d;
 }
 
-footer {
-    position: absolute;
-    margin: 5px auto;
-    width: 90%;
-    box-sizing: border-box;
-    /*border-top: 4px double #837a63;*/
+#scroll-top {
+    display: none;
 }
 
 .newsfeed-bg {
     position: fixed;
-    left: 35%;
+    left: 33.33%;
     height: 100%;
-    max-width: 900px;
-    width: 60%;
+    /*max-width: 900px;*/
+    width: 58.33%;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
     box-sizing: border-box;
@@ -227,15 +223,11 @@ footer {
     background-color: white;
 }
 
-#scroll-top {
-    display: none;
-}
-
-
 .newsfeed {
     position: relative;
-    max-width: 900px;
-    padding: 50px 120px 30px 100px;
+    width: 58.33%;
+    padding-left: 35px;
+    padding-right: 35px;
 }
 
 
@@ -311,24 +303,23 @@ footer {
 }
 
 .to-top {
-    width: 60%;
-    max-width: 900px;
-    left: 34.4%;
-    text-align: center;
     z-index: 10;
+    width: 58.33%;
+    text-align: center;
+    left: 33.33%;
     position: fixed;
     bottom: 30px;
 }
 
     .to-top .fa {
         font-size: 4em;
-        opacity: .2;
+        opacity: .3;
         transition: font-size .8s, opacity .8s;
         color: #333;
     }
 
         .to-top .fa:hover {
-            font-size: 5em;
+            font-size: 4.5em;
             opacity: .8;
         }
 
@@ -393,8 +384,8 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
         }
 
     .to-top {
-        left: 42%;
-        width: 60px;
+        width: 100%;
+        left: 0;
     }
 
         .to-top .fa {
@@ -413,6 +404,7 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
     }
 
     .newsfeed {
+        width:100%;
         padding: 25px 5px 30px 5px;
     }
 
