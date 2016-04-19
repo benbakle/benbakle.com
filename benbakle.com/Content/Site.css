@@ -111,6 +111,9 @@ button {
     font-family: Calibri;
 }
 
+blockquote{
+    word-wrap:break-word;
+}
 .modal-content {
     padding: 0 10px;
 }
