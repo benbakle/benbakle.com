@@ -142,19 +142,16 @@ button {
             color: #56BC8A;
         }
 
-    .title img {
-        margin: 20px auto;
+   .title .avatar img {
+        margin: 40px auto;
         max-width: 50%;
         border: 1px solid #68614F;
     }
 
-.avatar {
-    padding-bottom: 40px;
-}
 
 .link-strip {
     position: relative;
-    min-height: 60px;
+    min-height: 75px;
     font-size: 2em;
     width: 100%;
 }
@@ -164,12 +161,11 @@ button {
         cursor: pointer;
         padding: 0 5px;
         -webkit-transition: font-size 2s; /* For Safari 3.1 to 6.0 */
-        transition: font-size .5s, padding .5s;
+        transition: font-size .5s, top .5s;
     }
 
         .link-strip .fa:hover {
-            margin-bottom: -25px;
-            padding: 0 20px;
+            top:3px;
             font-size: 1.2em;
         }
 
@@ -226,8 +222,7 @@ button {
 .newsfeed {
     position: relative;
     width: 58.33%;
-    padding-left: 75px;
-    padding-right: 75px;
+    padding:50px 75px;
 }
 
 
