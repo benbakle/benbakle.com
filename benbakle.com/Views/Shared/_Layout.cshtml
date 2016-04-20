@@ -9,7 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700,700italic' rel='stylesheet' type='text/css'>
     <link rel="icon" href="~/images/Ben.jpg" />
 </head>
-<body>
+<body onload="prettyPrint()">
     <div id="top"></div>
     <div class="title visible-md visible-lg visible-sm">
         <h1>
@@ -94,6 +94,10 @@
 
             $('[data-toggle="tooltip"]').tooltip();
 
+            //var mycode = document.getElementsByTagName('blockquote').innerHTML();
+            //alert(mycode);
+
+
 
             //Embeding of tumblr post
             var limit = 5;
@@ -120,9 +124,16 @@
                 var tDate = new Date(posts['date']);
                 var tBody = posts['regular-body'];
                 var dateStr = weekday[tDate.getDay()] + " " + month[tDate.getMonth()] + " " + tDate.getDate() + ", " + tDate.getFullYear();
+                var displayString = "<h1><a href='" + tURL + "' target='_blank' data-toggle='tooltip' title='benbakle.tumblr.com'><i class='fa fa-tumblr'></i></a><a href='" + tPostURL + "' target=_'blank'>" + tTitle + "</a><small>" + dateStr + "</small></h1>" + tBody + "<br /><hr />" //.substring(0, 500) -- after 'regular-body' to shorten
+                displayArray = displayString.split("</p></blockquote>");
+                displayString = "";
 
-                $('#tumblrfeed').append("<h1><a href='" + tURL + "' target='_new' data-toggle='tooltip' title='benbakle.tumblr.com'><i class='fa fa-tumblr'></i></a><a href='" + tPostURL + " target=_'new'>" + tTitle + "</a><small>" + dateStr + "</small></h1>" + tBody + "<code>" + posts['tags'] + "</code><br /><hr />"); //.substring(0, 500) -- after 'regular-body' to shorten
+                //replace tumblr <blockquote> with <pre> and class prettyprint
+                for (i = 0; i < displayArray.length; i++) {
+                    displayString = displayString + displayArray[i].replace("<blockquote><p>", "<pre class='prettyprint lang-js lang-html'>") + "</pre>";
+                }
 
+                $('#tumblrfeed').append(displayString);
             }
 
             function displayLinkPost(posts) {
@@ -161,6 +172,19 @@
             weekday[5] = "Friday";
             weekday[6] = "Saturday";
         });
+
+        //$.getJSON('http://yourname.tumbr.com/api/read/json?num=5&callback=?', function (data) {
+        //    $.each(data.posts, function (i, posts) {
+        //        if (posts.type == 'regular') {
+        //            $('#tumblerfeed').append(posts['regular-body']);
+        //        } else if (posts.type == 'link') {
+        //            $('#tumblerfeed').append(posts['link-text']);
+        //        } else if (posts.type == 'video') {
+        //            $('#tumblerfeed').append(posts['video-caption']);
+        //        }
+        //    });
+        //});
+
     </script>
 
 </body>
