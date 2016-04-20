@@ -49,20 +49,26 @@ h1 {
         position: relative;
     }
 
+    h1 a {
+        color: #68614F;
+    }
+
+        h1 a:hover {
+            color: #56BC8A;
+        }
+
+        h1 a:focus, h1 a:active {
+            color: #56BC8A;
+        }
+
+
+
 #tumblrfeed {
     position: relative;
 }
 
     #tumblrfeed h1 a:visited,
     #tumblrfeed h1 a:active,
-    #tumblrfeed h1 a {
-        color: #68614F;
-    }
-
-        #tumblrfeed h1 a:hover {
-            color: #56BC8A;
-        }
-
     #tumblrfeed .fa-tumblr {
         position: relative;
         font-size: 1em;
@@ -111,10 +117,11 @@ button {
     font-family: Calibri;
 }
 
-blockquote{
-    word-wrap:break-word;
-    padding:10px 0 10px 10px;
+blockquote {
+    word-wrap: break-word;
+    padding: 10px 0 10px 10px;
 }
+
 .modal-content {
     padding: 0 10px;
 }
@@ -146,7 +153,7 @@ blockquote{
             color: #56BC8A;
         }
 
-   .title .avatar img {
+    .title .avatar img {
         margin: 40px auto;
         max-width: 50%;
         border: 1px solid #68614F;
@@ -169,7 +176,7 @@ blockquote{
     }
 
         .link-strip .fa:hover {
-            top:3px;
+            top: 3px;
             font-size: 1.2em;
         }
 
@@ -226,7 +233,7 @@ blockquote{
 .newsfeed {
     position: relative;
     width: 58.33%;
-    padding:50px 75px;
+    padding: 50px 75px;
 }
 
 
@@ -403,7 +410,7 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
     }
 
     .newsfeed {
-        width:100%;
+        width: 100%;
         padding: 25px 5px 30px 5px;
     }
 
