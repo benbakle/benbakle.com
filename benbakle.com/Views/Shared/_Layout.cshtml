@@ -16,7 +16,7 @@
     <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700,700italic' rel='stylesheet' type='text/css'>
     <link rel="icon" href="~/images/Ben.jpg" />
 </head>
-<body onload="prettyPrint()">
+<body onload="prettyPrint();">
     <div id="top"></div>
     <div class="title visible-md visible-lg visible-sm">
         <h1>
@@ -84,7 +84,6 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            //var isXS = (screen.width <= 767);
 
             $(window).scroll(function () { // when the page is scrolled run this
                 if ($(this).scrollTop() >= 100) { // greater than or equal to 100px
@@ -93,6 +92,7 @@
                     $('#scroll-top').stop().fadeOut(1000); // fade out
                 }
             });
+
             $(".scroll-click").click(function () {
                 var myID = this.id;
                 myID = '#' + myID.split("-")[1];
@@ -100,11 +100,6 @@
             });
 
             $('[data-toggle="tooltip"]').tooltip();
-
-
-
-
-
 
             //Embeding of tumblr post
             var limit = 5;
@@ -124,14 +119,14 @@
 
             function displayTextPost(posts) {
                 if (posts == null) return;
-
+                var tID = 2//posts['id'];
                 var myURL = "http://www.benbakle.tumblr.com";
                 var tURL = posts['url'];
                 var tTitle = posts['regular-title'];
                 var tBody = posts['regular-body'];
                 var tDate = new Date(posts['date']);
                 var dateStr = weekday[tDate.getDay()] + " " + month[tDate.getMonth()] + " " + tDate.getDate() + ", " + tDate.getFullYear();
-                var displayString = "<h1><a href='" + myURL + "' target='_blank' data-toggle='tooltip' title='benbakle.tumblr.com'><i class='fa fa-tumblr'></i></a><a href='" + tURL + "' target=_'blank'>" + tTitle + "</a><small>" + dateStr + "</small></h1>" + tBody + "<br /><hr />" //.substring(0, 500) -- after 'regular-body' to shorten
+                var displayString = "<div id='" + tID + "'></div><h1><a href='" + myURL + "' target='_blank' data-toggle='tooltip' title='benbakle.tumblr.com'><i class='fa fa-tumblr'></i></a><a href='" + tURL + "' target='_blank'>" + tTitle + "</a><small>" + dateStr + "</small></h1>" + tBody + "<br /><hr />" //.substring(0, 500) -- after 'regular-body' to shorten
 
                 //splits the text and eliminates text used to parse it
                 displayArray = displayString.split("</p></blockquote>");
@@ -143,19 +138,16 @@
                     displayString = displayString.replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
 
                 }
-
                 $('#tumblrfeed').append(displayString);
+
 
                 $('#tumblrfeed h1 a:nth-of-type(2)').each(function () {
                     var tHeader = $(this).html().replace("...", "... <span style='text-transform: lowercase; font-size:.9em;'>");
-                    //alert(tHeader);
                     $(this).html(tHeader);
                 });
 
-
+                scrollToID();
             }
-            
-
 
             function displayLinkPost(posts) {
                 if (posts == null) return;
@@ -168,6 +160,26 @@
                 if (posts == null) return;
                 $('#tumblrfeed').append('<p><h1>' + posts['video-caption'] + "</h1>");
                 $('#tumblrfeed').append(posts['video-player-250'] + '</p>');
+            }
+
+          
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] == variable) { return pair[1]; }
+                }
+                return (false);
+            }         
+            function scrollToID() {
+                var url = window.location.href;
+                id = "#" + getQueryVariable("scrollTo");
+                //id = "#" + url.split("#")[1].toString();
+                window.onload = function () {
+                    $('html, body').stop().animate({ scrollTop: $(id).position().top - 10 }, 500);
+
+                }
             }
 
             var month = new Array();
@@ -194,17 +206,8 @@
             weekday[6] = "Saturday";
         });
 
-        //$.getJSON('http://yourname.tumbr.com/api/read/json?num=5&callback=?', function (data) {
-        //    $.each(data.posts, function (i, posts) {
-        //        if (posts.type == 'regular') {
-        //            $('#tumblerfeed').append(posts['regular-body']);
-        //        } else if (posts.type == 'link') {
-        //            $('#tumblerfeed').append(posts['link-text']);
-        //        } else if (posts.type == 'video') {
-        //            $('#tumblerfeed').append(posts['video-caption']);
-        //        }
-        //    });
-        //});
+        
+
 
     </script>
 
