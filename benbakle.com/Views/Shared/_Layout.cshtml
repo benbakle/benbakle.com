@@ -101,6 +101,11 @@
 
             $('[data-toggle="tooltip"]').tooltip();
 
+
+
+
+
+
             //Embeding of tumblr post
             var limit = 5;
             var url = 'http://benbakle.tumblr.com';
@@ -136,10 +141,21 @@
                 for (i = 0; i < displayArray.length; i++) {
                     displayString = displayString + displayArray[i].replace("<blockquote><p>", "<pre class='prettyprint lang-js'>") + "</pre>";
                     displayString = displayString.replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
-                    }
+
+                }
 
                 $('#tumblrfeed').append(displayString);
+
+                $('#tumblrfeed h1 a:nth-of-type(2)').each(function () {
+                    var tHeader = $(this).html().replace("...", "... <span style='text-transform: lowercase; font-size:.9em;'>");
+                    //alert(tHeader);
+                    $(this).html(tHeader);
+                });
+
+
             }
+            
+
 
             function displayLinkPost(posts) {
                 if (posts == null) return;

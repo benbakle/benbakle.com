@@ -4,6 +4,7 @@
 
 html, body {
     height: 100%;
+
 }
 
 body {
@@ -233,7 +234,7 @@ blockquote {
 .newsfeed {
     position: relative;
     width: 58.33%;
-    padding: 50px 75px;
+    padding: 50px 65px;
 }
 
 
@@ -479,6 +480,7 @@ soundcloud:  #ff3a00     rgb(255, 58, 0)
 
 @media(min-width:768px) {
 }
+
 /*md*/
 @media(min-width:992px) {
 }
