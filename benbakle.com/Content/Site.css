@@ -63,7 +63,9 @@ h1 {
         }
 
 
-
+pre.prettyprint{
+    background-color:#494437;
+}
 #tumblrfeed {
     position: relative;
 }
