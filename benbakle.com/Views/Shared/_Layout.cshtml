@@ -129,7 +129,7 @@
 
                 $(".copy-code").click(function (e) {
                     e.preventDefault();
-                    window.prompt('Press Ctrl/Cmd + C to copy text', $(this).next('pre').text());
+                    window.prompt('Copy to Clipboard: Ctrl+C then Enter', $(this).next('pre').text());
                 });
              
                 //Hide loading image load.hide()
@@ -152,7 +152,7 @@
 
                 //replace tumblr <blockquote><p> with <pre class="prettyprint">
                 for (i = 0; i < displayArray.length; i++) {
-                    displayString = displayString + displayArray[i].replace("<blockquote><p>", "<a href='#' onclick='copyCode();' class='copy-code'>Copy</a><pre class='prettyprint lang-js'>") + "</pre>";
+                    displayString = displayString + displayArray[i].replace("<blockquote><p>", "<a href='#' class='copy-code'>Copy</a><pre class='prettyprint lang-js'>") + "</pre>";
                     displayString = displayString.replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
                 }
                 
@@ -190,13 +190,8 @@
             }
 
             function scrollToID(id) {
-                $('html, body').stop().animate({ scrollTop: $(id).position().top - 10 }, 500);
+                $("html, body").stop().animate({ scrollTop: $(id).position().top - 10 }, 500);
             }
-
-            function copyCode() {
-                window.prompt('Press ctrl/cmd + c to copy text', $(this).prev('pre').text());
-            }
-
 
             var month = new Array();
             month[0] = "January";
