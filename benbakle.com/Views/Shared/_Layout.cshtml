@@ -63,7 +63,7 @@
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
                         <li><a href="~/#resume" id="scroll-resume" class="scroll-click">Resume</a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="~/Home/About" class="scroll-click">Interests</a></li>
+                        <li><a href="~/Home/About/" class="scroll-click">Interests</a></li>
 
                     </ul>
                 </div>
@@ -84,6 +84,8 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            var hash = window.location.hash;
+            window.location = "#top";
 
             $(window).scroll(function () { // when the page is scrolled run this
                 if ($(this).scrollTop() >= 100) { // greater than or equal to 100px
@@ -96,15 +98,24 @@
             $(".scroll-click").click(function () {
                 var myID = this.id;
                 myID = '#' + myID.split("-")[1];
-                $('html, body').stop().animate({ scrollTop: $(myID).position().top - 10 }, 500);
+                scrollToID(myID);
             });
 
+            //Handles scrolling from link
+            if (location.hash) {
+                setTimeout(function () {
+                    scrollToID(hash)
+                }, 1000);
+            }
+
             $('[data-toggle="tooltip"]').tooltip();
+
+            
 
             //Embeding of tumblr post
             var limit = 5;
             var url = 'http://benbakle.tumblr.com';
-
+            //Show loading image load.show()
             $.getJSON(url + '/api/read/json?num=' + limit + '&callback=?', function (data) {
                 $.each(data.posts, function (i, posts) {
                     if (posts.type == 'video') {
@@ -115,11 +126,18 @@
                         displayTextPost(posts);
                     }
                 });
+
+                $(".copy-code").click(function (e) {
+                    e.preventDefault();
+                    window.prompt('Press Ctrl/Cmd + C to copy text', $(this).next('pre').text());
+                });
+             
+                //Hide loading image load.hide()
             });
 
             function displayTextPost(posts) {
                 if (posts == null) return;
-                var tID = 2//posts['id'];
+                var tID = posts['id'];
                 var myURL = "http://www.benbakle.tumblr.com";
                 var tURL = posts['url'];
                 var tTitle = posts['regular-title'];
@@ -134,19 +152,17 @@
 
                 //replace tumblr <blockquote><p> with <pre class="prettyprint">
                 for (i = 0; i < displayArray.length; i++) {
-                    displayString = displayString + displayArray[i].replace("<blockquote><p>", "<pre class='prettyprint lang-js'>") + "</pre>";
+                    displayString = displayString + displayArray[i].replace("<blockquote><p>", "<a href='#' onclick='copyCode();' class='copy-code'>Copy</a><pre class='prettyprint lang-js'>") + "</pre>";
                     displayString = displayString.replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
-
                 }
+                
                 $('#tumblrfeed').append(displayString);
-
 
                 $('#tumblrfeed h1 a:nth-of-type(2)').each(function () {
                     var tHeader = $(this).html().replace("...", "... <span style='text-transform: lowercase; font-size:.9em;'>");
                     $(this).html(tHeader);
                 });
 
-                scrollToID();
             }
 
             function displayLinkPost(posts) {
@@ -162,7 +178,7 @@
                 $('#tumblrfeed').append(posts['video-player-250'] + '</p>');
             }
 
-          
+
             function getQueryVariable(variable) {
                 var query = window.location.search.substring(1);
                 var vars = query.split("&");
@@ -171,16 +187,16 @@
                     if (pair[0] == variable) { return pair[1]; }
                 }
                 return (false);
-            }         
-            function scrollToID() {
-                var url = window.location.href;
-                id = "#" + getQueryVariable("scrollTo");
-                //id = "#" + url.split("#")[1].toString();
-                window.onload = function () {
-                    $('html, body').stop().animate({ scrollTop: $(id).position().top - 10 }, 500);
-
-                }
             }
+
+            function scrollToID(id) {
+                $('html, body').stop().animate({ scrollTop: $(id).position().top - 10 }, 500);
+            }
+
+            function copyCode() {
+                window.prompt('Press ctrl/cmd + c to copy text', $(this).prev('pre').text());
+            }
+
 
             var month = new Array();
             month[0] = "January";
@@ -206,7 +222,7 @@
             weekday[6] = "Saturday";
         });
 
-        
+
 
 
     </script>

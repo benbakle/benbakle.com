@@ -269,6 +269,11 @@ blockquote {
         color: #d4d0c4;
     }
 
+.copy-code{
+    position:relative;
+    clear:both;
+    font-size:.7em;
+}
 .nav-container {
     text-transform: uppercase;
     padding: 10px 0;
