@@ -23,7 +23,8 @@ namespace benbakle.com
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/Prettify/prettify.js",
-                      "~/Scripts/Prettify/run_prettify.js"));
+                      "~/Scripts/Prettify/run_prettify.js",
+                      "~/Scripts/ninja.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

@@ -25,7 +25,7 @@
             <span>Bakle</span>
         </h1>
         <div class="avatar">
-            <a href="~/Home"><img src="~/images/Ben.jpg" class="img-responsive img-circle" /></a>
+            <a href="~/Home/"><img src="~/images/Ben.jpg" class="img-responsive img-circle" /></a>
         </div>
         <div class="link-strip">
             @Html.Partial("_LinkStripPartial")
@@ -38,14 +38,14 @@
     </div>
 
     <div class="to-top">
-        <a href="#top" id="scroll-top" class="scroll-click"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+        <a href="#top" id="scroll-top" class="scroll-to"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
     </div>
     <div class="newsfeed-bg"></div>
     <div class="container-fluid body-content">
         <div class="row">
             <div class="newsfeed col-md-offset-4 col-md-8  col-sm-offset-4 col-sm-8">
                 <div class="title-xs visible-xs">
-                    <a href="~/Home"><img src="~/images/Ben.jpg" class="img-responsive img-circle" /></a>
+                    <a href="~/Home/#top"><img src="~/images/Ben.jpg" class="img-responsive img-circle" /></a>
                     <h1>
                         Benjamin
                         <span>Bakle</span>
@@ -57,13 +57,13 @@
                 </div>
                 <div class="nav-container">
                     <ul class="list-inline">
-                        <li><a href="~/#blog" id="scroll-blog" class="scroll-click">Blog</a></li>
+                        <li><a href="~/#blog" class="scroll-to">Blog</a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="~/#portfolio" id="scroll-portfolio" class="scroll-click">Portfolio</a></a></li>
+                        <li><a href="~/#portfolio" class="scroll-to">Portfolio</a></a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="~/#resume" id="scroll-resume" class="scroll-click">Resume</a></li>
+                        <li><a href="~/#resume" class="scroll-to">Resume</a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="~/Home/About/" class="scroll-click">Interests</a></li>
+                        <li><a href="~/Home/About/" class="scroll-to">Interests</a></li>
 
                     </ul>
                 </div>
@@ -85,141 +85,32 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var hash = window.location.hash;
+            var scrollSpeed = 1000;
             window.location = "#top";
-
-            $(window).scroll(function () { // when the page is scrolled run this
-                if ($(this).scrollTop() >= 100) { // greater than or equal to 100px
-                    $('#scroll-top').stop().fadeIn(1000); // fade in
-                } else { // else
-                    $('#scroll-top').stop().fadeOut(1000); // fade out
-                }
-            });
-
-            $(".scroll-click").click(function () {
-                var myID = this.id;
-                myID = '#' + myID.split("-")[1];
-                scrollToID(myID);
-            });
 
             //Handles scrolling from link
             if (location.hash) {
                 setTimeout(function () {
-                    scrollToID(hash)
-                }, 1000);
+                    $("html, body").stop().animate({ scrollTop: $(hash).position().top - 10 }, scrollSpeed);
+                    window.location = hash;
+                }, 500);
             }
 
+            displayTumblrBlog("benbakle.tumblr.com", 5, "#tumblrfeed");
+            $(".scroll-to").scrollToID(scrollSpeed);
             $('[data-toggle="tooltip"]').tooltip();
 
-            
-
-            //Embeding of tumblr post
-            var limit = 5;
-            var url = 'http://benbakle.tumblr.com';
-            //Show loading image load.show()
-            $.getJSON(url + '/api/read/json?num=' + limit + '&callback=?', function (data) {
-                $.each(data.posts, function (i, posts) {
-                    if (posts.type == 'video') {
-                        displayVideoPost(posts);
-                    } else if (posts.type == 'link') {
-                        displayLinkPost(posts);
-                    } else if (posts.type == 'regular') {
-                        displayTextPost(posts);
-                    }
-                });
-
-                $(".copy-code").click(function (e) {
-                    e.preventDefault();
-                    window.prompt('Copy to Clipboard: Ctrl+C then Enter', $(this).next('pre').text());
-                });
-             
-                //Hide loading image load.hide()
+            $(window).scroll(function () { // when the page is scrolled run this
+                if ($(this).scrollTop() >= 100) { // greater than or equal to 100px
+                    $('#scroll-top').stop().fadeIn(750); // fade in
+                } else { // else
+                    $('#scroll-top').stop().fadeOut(750); // fade out
+                }
             });
 
-            function displayTextPost(posts) {
-                if (posts == null) return;
-                var tID = posts['id'];
-                var myURL = "http://www.benbakle.tumblr.com";
-                var tURL = posts['url'];
-                var tTitle = posts['regular-title'];
-                var tBody = posts['regular-body'];
-                var tDate = new Date(posts['date']);
-                var dateStr = weekday[tDate.getDay()] + " " + month[tDate.getMonth()] + " " + tDate.getDate() + ", " + tDate.getFullYear();
-                var displayString = "<div id='" + tID + "'></div><h1><a href='" + myURL + "' target='_blank' data-toggle='tooltip' title='benbakle.tumblr.com'><i class='fa fa-tumblr'></i></a><a href='" + tURL + "' target='_blank'>" + tTitle + "</a><small>" + dateStr + "</small></h1>" + tBody + "<br /><hr />" //.substring(0, 500) -- after 'regular-body' to shorten
+           
 
-                //splits the text and eliminates text used to parse it
-                displayArray = displayString.split("</p></blockquote>");
-                displayString = "";
-
-                //replace tumblr <blockquote><p> with <pre class="prettyprint">
-                for (i = 0; i < displayArray.length; i++) {
-                    displayString = displayString + displayArray[i].replace("<blockquote><p>", "<a href='#' class='copy-code'>Copy</a><pre class='prettyprint lang-js'>") + "</pre>";
-                    displayString = displayString.replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
-                }
-                
-                $('#tumblrfeed').append(displayString);
-
-                $('#tumblrfeed h1 a:nth-of-type(2)').each(function () {
-                    var tHeader = $(this).html().replace("...", "... <span style='text-transform: lowercase; font-size:.9em;'>");
-                    $(this).html(tHeader);
-                });
-
-            }
-
-            function displayLinkPost(posts) {
-                if (posts == null) return;
-                $('#tumblrfeed').append('<p><h1>' + posts['link-text'] + "</h1>");
-                $('#tumblrfeed').append(posts['link-url']);
-                $('#tumblrfeed').append(posts['link-description'] + '</p>');
-            }
-
-            function displayVideoPost(posts) {
-                if (posts == null) return;
-                $('#tumblrfeed').append('<p><h1>' + posts['video-caption'] + "</h1>");
-                $('#tumblrfeed').append(posts['video-player-250'] + '</p>');
-            }
-
-
-            function getQueryVariable(variable) {
-                var query = window.location.search.substring(1);
-                var vars = query.split("&");
-                for (var i = 0; i < vars.length; i++) {
-                    var pair = vars[i].split("=");
-                    if (pair[0] == variable) { return pair[1]; }
-                }
-                return (false);
-            }
-
-            function scrollToID(id) {
-                $("html, body").stop().animate({ scrollTop: $(id).position().top - 10 }, 500);
-            }
-
-            var month = new Array();
-            month[0] = "January";
-            month[1] = "February";
-            month[2] = "March";
-            month[3] = "April";
-            month[4] = "May";
-            month[5] = "June";
-            month[6] = "July";
-            month[7] = "August";
-            month[8] = "September";
-            month[9] = "October";
-            month[10] = "November";
-            month[11] = "December";
-
-            var weekday = new Array(7);
-            weekday[0] = "Sunday";
-            weekday[1] = "Monday";
-            weekday[2] = "Tuesday";
-            weekday[3] = "Wednesday";
-            weekday[4] = "Thursday";
-            weekday[5] = "Friday";
-            weekday[6] = "Saturday";
         });
-
-
-
-
     </script>
 
 </body>
