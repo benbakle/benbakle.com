@@ -84,21 +84,16 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            //Handles scrolling from link
             var hash = window.location.hash;
             var scrollSpeed = 1000;
             window.location = "#top";
-
-            //Handles scrolling from link
             if (location.hash) {
                 setTimeout(function () {
                     $("html, body").stop().animate({ scrollTop: $(hash).position().top - 10 }, scrollSpeed);
                     window.location = hash;
                 }, 500);
             }
-
-            displayTumblrBlog("benbakle.tumblr.com", 5, "#tumblrfeed");
-            $(".scroll-to").scrollToID(scrollSpeed);
-            $('[data-toggle="tooltip"]').tooltip();
 
             $(window).scroll(function () { // when the page is scrolled run this
                 if ($(this).scrollTop() >= 100) { // greater than or equal to 100px
@@ -108,7 +103,9 @@
                 }
             });
 
-           
+            displayTumblrBlog("benbakle.tumblr.com", 5, "#tumblrfeed");
+            $(".scroll-to").scrollToID(scrollSpeed);
+            $('[data-toggle="tooltip"]').tooltip();
 
         });
     </script>

@@ -127,7 +127,6 @@
             $(".copy-code").copyText("pre");
         });
 
-
         function displayTextPost(posts) {
             if (posts == null) return;
             var tumblrPostID = "<span class='tumblr-post-id' id='" + posts['id'] + "'></span>";
@@ -196,10 +195,12 @@
     }
 
     $.fn.scrollToID = function (speed) {
-        $(this).on("click", function () {
+        $(this).on("click", function (e) {
+            e.preventDefault();
             var myID = this.href;
             myID = '#' + myID.split("#")[1];
             $("html, body").stop().animate({ scrollTop: $(myID).position().top - 10 }, speed);
+            window.location = myID;
         });
     };
 
