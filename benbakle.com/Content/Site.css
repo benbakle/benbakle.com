@@ -272,8 +272,12 @@ blockquote {
     top: -10px;
 }
 
+section {
+    padding-top: 10px;
+}
+
 .section-divider {
-    margin: 100px 0 27px 0;
+    margin: 100px 0 0px 0;
     width: 100%;
     text-align: center;
 }

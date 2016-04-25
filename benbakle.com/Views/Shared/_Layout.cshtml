@@ -59,11 +59,11 @@
                     <ul class="list-inline">
                         <li><a href="~/#blog" class="scroll-to">Blog</a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="~/#portfolio" class="scroll-to">Portfolio</a></a></li>
+                        <li><a href="~/#portfolio" class="scroll-to">Portfolio</a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
                         <li><a href="~/#resume" class="scroll-to">Resume</a></li>
                         <li><i class="fa fa-circle" aria-hidden="true"></i></li>
-                        <li><a href="~/Home/About/" class="scroll-to">Interests</a></li>
+                        <li><a href="~/Home/About/#interests" class="scroll-to">Interests</a></li>
 
                     </ul>
                 </div>
@@ -84,30 +84,29 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            //Handles scrolling from link
-            var hash = window.location.hash;
+
+            //Page scrolling
             var scrollSpeed = 1000;
-            window.location = "#top";
-            if (location.hash) {
-                setTimeout(function () {
-                    $("html, body").stop().animate({ scrollTop: $(hash).position().top - 10 }, scrollSpeed);
-                    window.location = hash;
-                }, 500);
-            }
+            var fadeSpeed = 500;
+
+            allowIncomingScroll(scrollSpeed); //allows scrollToID when coming from external page
+            $(".scroll-to").scrollToID(scrollSpeed);
+
+            //imports tumblr json, last 5 posts, appends to #tumblrfeed div
+            displayTumblrBlog("benbakle.tumblr.com", 5, "#tumblrfeed");
+
+            $('[data-toggle="tooltip"]').tooltip();
 
             $(window).scroll(function () { // when the page is scrolled run this
                 if ($(this).scrollTop() >= 100) { // greater than or equal to 100px
-                    $('#scroll-top').stop().fadeIn(750); // fade in
-                } else { // else
-                    $('#scroll-top').stop().fadeOut(750); // fade out
+                    $('#scroll-top').stop().fadeIn(500); // fade in
+                } else {
+                    $('#scroll-top').stop().fadeOut(500); // fade out
                 }
             });
 
-            displayTumblrBlog("benbakle.tumblr.com", 5, "#tumblrfeed");
-            $(".scroll-to").scrollToID(scrollSpeed);
-            $('[data-toggle="tooltip"]').tooltip();
-
         });
+
     </script>
 
 </body>

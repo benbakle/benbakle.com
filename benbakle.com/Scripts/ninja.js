@@ -194,18 +194,41 @@
         return weekday[num];
     }
 
+    allowIncomingScroll = function (speed) {
+        var hash = window.location.hash;
+
+        window.location = "#top";
+        if (location.hash) {
+            setTimeout(function () {
+                $("html, body").stop().animate({ scrollTop: $(hash).position().top }, speed);
+                window.location = hash;
+            }, 500);
+        }
+    }
+
     $.fn.scrollToID = function (speed) {
-        $(this).on("click", function (e) {
+        $(this).click(function (e) {
             e.preventDefault();
-            var myID = this.href;
-            myID = '#' + myID.split("#")[1];
-            $("html, body").stop().animate({ scrollTop: $(myID).position().top - 10 }, speed);
-            window.location = myID;
+            myID = '#' + this.href.split("#")[1];
+
+            try {
+                $("html, body").stop().animate({ scrollTop: $(myID).position().top }, speed, function () {
+                    window.location = myID;
+                });
+            }
+            catch (err) {
+                window.location = this.href;
+            }
         });
     };
 
+    //--OPTIONAL SPEED FOR scrollToID function -- based on pixels -- Cool if i can get the distance to the top
+    //var pix = 500;
+    //var perSec = 250;
+    //speed = (offset / pix) * perSec;
+
     $.fn.copyText = function (nextTag) {
-        $(this).on("click", function (e) {
+        $(this).click(function (e) {
             e.preventDefault();
             window.prompt('Copy to Clipboard: Ctrl+C then Enter', $(this).next(nextTag).text());
         })
