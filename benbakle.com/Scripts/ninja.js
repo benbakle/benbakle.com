@@ -154,7 +154,7 @@
                 tumblrPostBody = tumblrPostBody.replace(/[‘’]/g, "'").replace(/[“”]/g, '"');
             }
 
-            displayString = tumblrPostID + tumblrPostTitle + tumblrPostDate + tumblrPostBody;
+            displayString = "<article>" + tumblrPostID + tumblrPostTitle + tumblrPostDate + tumblrPostBody + "<article>";
 
             return displayString;
         }
@@ -222,10 +222,7 @@
         });
     };
 
-    //--OPTIONAL SPEED FOR scrollToID function -- based on pixels -- Cool if i can get the distance to the top
-    //var pix = 500;
-    //var perSec = 250;
-    //speed = (offset / pix) * perSec;
+
 
     $.fn.copyText = function (nextTag) {
         $(this).click(function (e) {
@@ -243,4 +240,10 @@
         }
         return (false);
     }
+
+    //--OPTIONAL SPEED FOR scrollToID function -- based on pixels -- Cool if i can get the distance to the top
+    //var pix = 500;
+    //var perSec = 250;
+    //speed = (offset / pix) * perSec;
+
 }(jQuery));
